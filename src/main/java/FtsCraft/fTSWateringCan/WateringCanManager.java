@@ -56,7 +56,7 @@ public class WateringCanManager implements Listener {
                 if (meta instanceof Damageable damageable) {
                     damageable.setDamage(0);
                 }
-                inventory.setRepairCost(1);
+                inventory.setRepairCost(0); // Marked for Removal but works, might need to change it in later updates.
                 repaired.setItemMeta(meta);
                 event.setResult(repaired);
             } else {

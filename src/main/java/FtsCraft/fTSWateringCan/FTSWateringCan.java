@@ -13,10 +13,8 @@ public class FTSWateringCan extends JavaPlugin {
     public void onEnable() {
         wateringCanManager = new WateringCanManager(this);
         backpackManager = new BackpackManager(this);
-        wateringCanManager.registerWateringCanRecipe();
 
-        WateringCanManager wateringCanManager = new WateringCanManager(this);
-        getServer().getPluginManager().registerEvents(new WateringCanListener(this, wateringCanManager, backpackManager), this);
+        getServer().getPluginManager().registerEvents(new WateringCanListener(wateringCanManager, backpackManager), this);
         getServer().getPluginManager().registerEvents(new BackpackListener(backpackManager), this);
         Bukkit.getPluginManager().registerEvents(wateringCanManager, this);
 
@@ -32,13 +30,5 @@ public class FTSWateringCan extends JavaPlugin {
 
     {
         HandlerList.unregisterAll(this);
-    }
-
-    public WateringCanManager getWateringCanManager() {
-        return wateringCanManager;
-    }
-
-    public BackpackManager getBackpackManager() {
-        return backpackManager;
     }
 }

@@ -1,6 +1,5 @@
 package FtsCraft.fTSWateringCan;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
@@ -17,14 +16,14 @@ import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 
+import static org.bukkit.ChatColor.RED;
+
 public class WateringCanListener implements Listener {
 
-    private final FTSWateringCan plugin;
     private final WateringCanManager wateringCanManager;
     private final BackpackManager backpackManager;
 
-    public WateringCanListener(FTSWateringCan plugin, WateringCanManager wateringCanManager, BackpackManager backpackManager) {
-        this.plugin = plugin;
+    public WateringCanListener(WateringCanManager wateringCanManager, BackpackManager backpackManager) {
         this.wateringCanManager = wateringCanManager;
         this.backpackManager = backpackManager;
     }
@@ -88,12 +87,10 @@ public class WateringCanListener implements Listener {
                                     player.playSound(player.getLocation(), Sound.ENTITY_ITEM_BREAK, 1.0f, 1.0f);
                                 } else {
                                     damageable.setDamage(newDamage);
-                                    itemInHand.setItemMeta((ItemMeta) damageable);
+                                    itemInHand.setItemMeta(damageable);
                                 }
                             }
-                        } else {
-                            player.sendMessage(ChatColor.RED + "Dein Beutel hat kein Dünger mehr!");
-                        }
+                        } else player.sendMessage(RED + "Dein Beutel hat kein Dünger mehr!");
                     }
                 }
             }

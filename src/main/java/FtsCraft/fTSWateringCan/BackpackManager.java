@@ -65,10 +65,6 @@ public class BackpackManager {
         }
     }
 
-    public ItemStack[] getBackpack(String uniqueId) {
-        return backpacks.get(uniqueId);
-    }
-
     public void setBackpack(String uniqueId, ItemStack[] contents) {
         backpacks.put(uniqueId, contents);
     }
