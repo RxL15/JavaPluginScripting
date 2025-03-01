@@ -2,4 +2,4 @@ name: FTSWateringCan
 version: '1.0'
 main: FtsCraft.fTSWateringCan.FTSWateringCan
 api-version: '1.21'
-authors: [ RxL ]
+author: RxL
